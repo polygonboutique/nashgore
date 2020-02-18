@@ -181,7 +181,7 @@ class NashGoreBloodSpot : NashGoreBloodPlane
 	int dripDuration, dripInterval;
 
 	// 30 seconds
-	const dripDuration_MAX = 35 * 30;
+	const DRIP_DURATION_MAX = 35 * 30;
 
 	//===========================================================================
 	//
@@ -220,7 +220,7 @@ class NashGoreBloodSpot : NashGoreBloodPlane
 
 		if (bOnCeiling)
 		{
-			if (dripDuration < dripDuration_MAX)
+			if (dripDuration < DRIP_DURATION_MAX)
 			{
 				dripDuration++;
 
