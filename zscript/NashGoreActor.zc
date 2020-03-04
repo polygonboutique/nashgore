@@ -36,6 +36,7 @@ class NashGoreActor : NashGorePlugin
 	bool bCanBleed;
 	bool bIsDead;
 	bool bMirroredDeathSprite;
+	bool bDeathGibCheck;
 	bool bGibbed;
 	bool bCorpseBlood;
 	bool bShattered;
@@ -203,30 +204,34 @@ class NashGoreActor : NashGorePlugin
 			}
 
 			// gibbed stuff
-
-			// cheap fix for DeHacked monsters with identical Death and XDeath states :^)
-			// (thanks to The Zombie Killer for the idea)
-			bool bogusXDeathStates = false;
-			if (Owner.FindState('Death.Extreme', true) != NULL)
+			if (!bDeathGibCheck)
 			{
-				let deathSpr = Owner.FindState('Death', true).GetSpriteTexture(0);
-				let xDeathSpr = Owner.FindState('Death.Extreme', true).GetSpriteTexture(0);
-				//Console.Printf("%s, %s", TexMan.GetName(deathSpr), TexMan.GetName(xDeathSpr));
-				if (deathSpr == xDeathSpr) bogusXDeathStates = true;
-			}
+				// cheap fix for DeHacked monsters with identical Death and XDeath states :^)
+				// (thanks to The Zombie Killer for the idea)
+				bool bogusXDeathStates = false;
+				if (Owner.FindState('Death.Extreme', true) != NULL)
+				{
+					let deathSpr = Owner.FindState('Death', true).GetSpriteTexture(0);
+					let xDeathSpr = Owner.FindState('Death.Extreme', true).GetSpriteTexture(0);
+					Console.Printf("%s, %s", TexMan.GetName(deathSpr), TexMan.GetName(xDeathSpr));
+					if (deathSpr == xDeathSpr) bogusXDeathStates = true;
+				}
 
-			bool canGib =
-			(
-				Owner.Health < Owner.GetGibHealth() &&
-				Owner.FindState('Death.Extreme', true) != NULL &&
-				Owner.InStateSequence(Owner.CurState, Owner.ResolveState('Death.Extreme')) &&
-				!bogusXDeathStates
-			);
+				bool canGib =
+				(
+					Owner.Health < Owner.GetGibHealth() &&
+					Owner.FindState('Death.Extreme', true) != NULL &&
+					Owner.InStateSequence(Owner.CurState, Owner.ResolveState('Death.Extreme')) &&
+					!bogusXDeathStates
+				);
 
-			if (!bGibbed && canGib && bCanBleed)
-			{
-				NashGoreGibs.SpawnGibs(Owner);
-				bGibbed = true;
+				if (!bGibbed && canGib && bCanBleed)
+				{
+					NashGoreGibs.SpawnGibs(Owner);
+					bGibbed = true;
+				}
+
+				bDeathGibCheck = true;
 			}
 
 			// spawn ice gore stuff
@@ -255,6 +260,7 @@ class NashGoreActor : NashGorePlugin
 		bIsDead = false;
 		bCorpseBlood = false;
 		bGibbed = false;
+		bDeathGibCheck = false;
 		fallTics = 0;
 		footprintDuration = 0;
 		lastCorpseBlood = NULL;
