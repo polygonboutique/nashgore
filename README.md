@@ -76,21 +76,21 @@ phantombeta<br/>
 
 Sound sources:
 
-https://freesound.org/people/LittleRobotSoundFactory/sounds/270481/
-https://freesound.org/people/altfuture/sounds/174634/
-https://freesound.org/people/cliftonmcarlson/sounds/345985/
-https://freesound.org/people/deoking/sounds/411671/
-https://freesound.org/people/Rock%20Savage/sounds/81042/
-https://freesound.org/people/altfuture/sounds/174637/
-https://freesound.org/people/mattiagreyfox/sounds/202400/
-https://freesound.org/people/Hitrison/sounds/251411/
-https://freesound.org/people/Hitrison/sounds/251410/
-https://freesound.org/people/nicktermer/sounds/259542/
-https://freesound.org/people/saturdaysoundguy/sounds/388033/
-https://freesound.org/people/LittleRobotSoundFactory/sounds/316534/
-https://freesound.org/people/MWLANDI/sounds/85863/
-https://freesound.org/people/jvitorml/sounds/393736/
-https://freesound.org/people/janbezouska/sounds/399183/
+https://freesound.org/people/LittleRobotSoundFactory/sounds/270481/<br/>
+https://freesound.org/people/altfuture/sounds/174634/<br/>
+https://freesound.org/people/cliftonmcarlson/sounds/345985/<br/>
+https://freesound.org/people/deoking/sounds/411671/<br/>
+https://freesound.org/people/Rock%20Savage/sounds/81042/<br/>
+https://freesound.org/people/altfuture/sounds/174637/<br/>
+https://freesound.org/people/mattiagreyfox/sounds/202400/<br/>
+https://freesound.org/people/Hitrison/sounds/251411/<br/>
+https://freesound.org/people/Hitrison/sounds/251410/<br/>
+https://freesound.org/people/nicktermer/sounds/259542/<br/>
+https://freesound.org/people/saturdaysoundguy/sounds/388033/<br/>
+https://freesound.org/people/LittleRobotSoundFactory/sounds/316534/<br/>
+https://freesound.org/people/MWLANDI/sounds/85863/<br/>
+https://freesound.org/people/jvitorml/sounds/393736/<br/>
+https://freesound.org/people/janbezouska/sounds/399183/<br/>
 
 MODDERS:
 
