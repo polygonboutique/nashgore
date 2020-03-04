@@ -15,7 +15,7 @@ OptionMenu "NashGoreMenu"
 
 	StaticText "$NASHGOREMNU_BLOOD_TITLE", 1
 	NashGoreOption "$NASHGOREMNU_BLOOD_TYPE",		"$NASHGOREMNU_HELPTEXT_BLOOD_TYPE",			"nashgore_bloodtype",	"NashGoreBloodTypes"
-	NashGoreSlider "$NASHGOREMNU_BLOOD_AMOUNT",		"$NASHGOREMNU_HELPTEXT_BLOOD_AMOUNT",		"nashgore_bloodamount",	0, 255, 1, 0
+	NashGoreSlider "$NASHGOREMNU_BLOOD_AMOUNT",		"$NASHGOREMNU_HELPTEXT_BLOOD_AMOUNT",		"nashgore_bloodmult",	0.0, 10.0, 0.1, 1
 	NashGoreOption "$NASHGOREMNU_BLOOD_SPRITES",	"$NASHGOREMNU_HELPTEXT_BLOOD_SPRITES",		"nashgore_spriteblood",	"NashGoreBloodSpriteValues"
 	NashGoreOption "$NASHGOREMNU_BLOOD_SPURTS",		"$NASHGOREMNU_HELPTEXT_BLOOD_SPURTS",		"nashgore_bloodspurt",	"OnOff"
 

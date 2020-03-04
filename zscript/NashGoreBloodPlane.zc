@@ -191,8 +191,6 @@ class NashGoreBloodSpot : NashGoreBloodPlane
 
 	override void PostBeginPlay(void)
 	{
-		if (random() < (255 - nashgore_bloodamount)) { Destroy(); return; }
-
 		/*
 		if (target && !nashgore_spriteblood)
 		{
