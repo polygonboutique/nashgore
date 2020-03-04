@@ -210,6 +210,12 @@ class NashGoreActor : NashGorePlugin
 				Owner.InStateSequence(Owner.CurState, Owner.ResolveState('Death.Extreme'))
 			);
 
+			// cheap fix for DeHacked monsters with identical Death and XDeath states :^)
+			// (thanks to The Zombie Killer for the idea)
+			let deathSpr = Owner.ResolveState('Death').sprite;
+			let xDeathSpr = Owner.ResolveState('Death.Extreme').sprite;
+			if (deathSpr == xDeathSpr) canGib = false;
+
 			if (!bGibbed && canGib && bCanBleed)
 			{
 				NashGoreGibs.SpawnGibs(Owner);

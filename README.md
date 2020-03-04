@@ -71,6 +71,7 @@ Marisa Kirisame<br/>
 Caligari87<br/>
 Namsan<br/>
 m8f<br/>
+The Zombie Killer<br/>
 
 Sound sources:
 
