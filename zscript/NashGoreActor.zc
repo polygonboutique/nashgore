@@ -164,10 +164,14 @@ class NashGoreActor : NashGorePlugin
 					{
 						for (int i = 0; i < 20; i++)
 						{
-							Owner.A_SpawnItemEx("NashGoreBloodSpurt",
-								frandom(-4, 4), frandom(-4, 4), frandom(10, 20),
-								frandom(-4.0, 4.0), frandom(-4.0, 4.0), frandom(5.0, 10.0),
-								frandom(0, 360), SXF_USEBLOODCOLOR);
+							int amt  = NashGoreStatics.GetAmountMult(nashgore_bloodmult);
+							for (int i = 0; i < amt; i++)
+							{
+								Owner.A_SpawnItemEx("NashGoreBloodSpurt",
+									frandom(-4, 4), frandom(-4, 4), frandom(10, 20),
+									frandom(-4.0, 4.0), frandom(-4.0, 4.0), frandom(5.0, 10.0),
+									frandom(0, 360), SXF_USEBLOODCOLOR);
+							}
 						}
 					}
 					fallTics = MAX_FALLTICS + 1;
