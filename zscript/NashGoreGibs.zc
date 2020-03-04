@@ -65,12 +65,6 @@ class NashGoreGibs : Actor
 		Super.BeginPlay();
 	}
 
-	override void PostBeginPlay(void)
-	{
-		if (random() < (255 - nashgore_gibamount)) { Destroy(); return; }
-		Super.PostBeginPlay();
-	}
-
 	override void Tick(void)
 	{
 		Super.Tick();
@@ -103,12 +97,17 @@ class NashGoreGibs : Actor
 			Actor obj;
 
 			// spawn gibs
-			[result, obj] =
-			mo.A_SpawnItemEx("NashGoreGibs",
-				zofs: spawnHeight,
-				frandom(-5.5, 5.5), frandom(-5.5, 5.5), frandom(0, 12.5),
-				flags: SXF_USEBLOODCOLOR, 100);
-			if (obj) obj.target = mo;
+			int amt, cmul;
+			[amt, cmul] = NashGoreStatics.GetAmountMult(nashgore_gibmult, 100);
+			for (int i = 0; i < amt; i++)
+			{
+				[result, obj] =
+				mo.A_SpawnItemEx("NashGoreGibs",
+					zofs: spawnHeight,
+					frandom(-5.5, 5.5), frandom(-5.5, 5.5), frandom(0, 12.5),
+					flags: SXF_USEBLOODCOLOR, cmul);
+				if (obj) obj.target = mo;
+			}
 
 			// spawn lots of blood
 			if (random() < 70)
@@ -129,53 +128,57 @@ class NashGoreGibs : Actor
 
 				double ang = frandom(0, 360);
 
-				mo.LineTrace(ang, 128, frandom(-90, 0), flags, spawnHeight, data: t);
-
-				if (t.HitType == t.TRACE_HitCeiling)
+				int amt  = NashGoreStatics.GetAmountMult(nashgore_gibmult);
+				for (int i = 0; i < amt; i++)
 				{
-					bool result;
-					Actor obj;
+					mo.LineTrace(ang, 128, frandom(-90, 0), flags, spawnHeight, data: t);
 
-					// ceiling blood
-					if (nashgore_bloodtype == 0 || nashgore_bloodtype == 1)
+					if (t.HitType == t.TRACE_HitCeiling)
 					{
-						class<Actor> cls;
-						if (nashgore_bloodtype == 0)		cls = "NashGoreBloodSpotCeiling";
-						else if (nashgore_bloodtype == 1)	cls = "NashGoreBloodSpotClassicCeiling";
+						bool result;
+						Actor obj;
 
-						[result, obj] = mo.A_SpawnItemEx(cls, flags: SXF_USEBLOODCOLOR, 150);
+						// ceiling blood
+						if (nashgore_bloodtype == 0 || nashgore_bloodtype == 1)
+						{
+							class<Actor> cls;
+							if (nashgore_bloodtype == 0)		cls = "NashGoreBloodSpotCeiling";
+							else if (nashgore_bloodtype == 1)	cls = "NashGoreBloodSpotClassicCeiling";
+
+							[result, obj] = mo.A_SpawnItemEx(cls, flags: SXF_USEBLOODCOLOR, 150);
+							if (obj)
+							{
+								obj.Gravity = 0;
+								obj.SetOrigin(t.HitLocation, true);
+								NashGoreBloodSpot(obj).bOnCeiling = true;
+
+								// flip sprite Y
+								if (nashgore_spriteblood) obj.Scale.Y *= -1;
+							}
+						}
+
+						// ceiling gib
+						[result, obj] = mo.A_SpawnItemEx("NashGoreStickyGibsCeiling", flags: SXF_USEBLOODCOLOR | SXF_NOCHECKPOSITION, 200);
 						if (obj)
 						{
-							obj.Gravity = 0;
 							obj.SetOrigin(t.HitLocation, true);
-							NashGoreBloodSpot(obj).bOnCeiling = true;
-
-							// flip sprite Y
-							if (nashgore_spriteblood) obj.Scale.Y *= -1;
+							NashGoreStickyGibsCeiling(obj).bOnCeiling = true;
 						}
 					}
 
-					// ceiling gib
-					[result, obj] = mo.A_SpawnItemEx("NashGoreStickyGibsCeiling", flags: SXF_USEBLOODCOLOR | SXF_NOCHECKPOSITION, 200);
-					if (obj)
+					// spawn wall gibs
+					if (t.HitType == t.TRACE_HitWall)
 					{
-						obj.SetOrigin(t.HitLocation, true);
-						NashGoreStickyGibsCeiling(obj).bOnCeiling = true;
-					}
-				}
-
-				// spawn wall gibs
-				if (t.HitType == t.TRACE_HitWall)
-				{
-					// wall gib
-					bool result;
-					Actor obj;
-					[result, obj] = mo.A_SpawnItemEx("NashGoreStickyGibsWall", flags: SXF_USEBLOODCOLOR | SXF_NOCHECKPOSITION, 100);
-					if (obj)
-					{
-						double posAdjust = -4.f;
-						Vector3 stickPos = (t.HitLocation.X + cos(ang) * posAdjust, t.HitLocation.Y + sin(ang) * posAdjust, t.HitLocation.Z);
-						obj.SetOrigin(stickPos, true);
+						// wall gib
+						bool result;
+						Actor obj;
+						[result, obj] = mo.A_SpawnItemEx("NashGoreStickyGibsWall", flags: SXF_USEBLOODCOLOR | SXF_NOCHECKPOSITION, 100);
+						if (obj)
+						{
+							double posAdjust = -4.f;
+							Vector3 stickPos = (t.HitLocation.X + cos(ang) * posAdjust, t.HitLocation.Y + sin(ang) * posAdjust, t.HitLocation.Z);
+							obj.SetOrigin(stickPos, true);
+						}
 					}
 				}
 			}
