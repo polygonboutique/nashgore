@@ -38,6 +38,10 @@ OptionMenu "NashGoreMenu"
 	NashGoreOption "$NASHGOREMNU_MISC_SPLAT",				"$NASHGOREMNU_HELPTEXT_MISC_SPLAT",			"nashgore_splat",		"OnOff"
 
 	StaticText ""
+	StaticText "$$OPTMNU_SOUND", 1
+	NashGoreSlider "$NASHGOREMNU_SOUND_BLOODIMPACTVOLUME",	"$NASHGOREMNU_HELPTEXT_SOUND_BLOODIMPACTVOLUME", "nashgore_bloodimpactsoundvolume", 0.0, 1.0, 0.1, 2
+
+	StaticText ""
 
 	StaticText "$NASHGOREMNU_CONTROLS_TITLE", 1
 	NashGoreControl "$NASHGOREMNU_CONTROLS_CLEARGORE", "$NASHGOREMNU_HELPTEXT_CONTROLS_CLEARGORE", "netevent EV_ClearGore"

@@ -88,6 +88,18 @@ class NashGoreBloodImpact : NashGoreBloodBase
 		+NOGRAVITY
 	}
 
+	double impactSoundVolume;
+
+	override void BeginPlay(void)
+	{
+		Super.BeginPlay();
+		let cv = CVar.GetCVar("nashgore_bloodimpactsoundvolume", players[consoleplayer]);
+		if (cv)
+		{
+			impactSoundVolume = cv.GetFloat();
+		}
+	}
+
 	override void PostBeginPlay(void)
 	{
 		Super.PostBeginPlay();
@@ -97,7 +109,7 @@ class NashGoreBloodImpact : NashGoreBloodBase
 	States
 	{
 	Spawn:
-		TNT1 A 0 NoDelay A_StartSound("nashgore/bullethitflesh");
+		TNT1 A 0 NoDelay A_StartSound("nashgore/bullethitflesh", volume: impactSoundVolume);
 		BLIM ABCDE 3;
 		Stop;
 	}

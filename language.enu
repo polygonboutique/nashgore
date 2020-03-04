@@ -26,6 +26,8 @@ NASHGOREMNU_MISC_SQUISH = "Squish Effect";
 NASHGOREMNU_MISC_ICEDEATH = "Ice Effects";
 NASHGOREMNU_MISC_SPLAT = "Fall Splat";
 
+NASHGOREMNU_SOUND_BLOODIMPACTVOLUME = "Blood Impact Volume";
+
 NASHGOREMNU_CONTROLS_CLEARGORE = "Clear Gore Effects";
 
 // Generic reusable labels
@@ -54,6 +56,7 @@ NASHGOREMNU_HELPTEXT_MISC_DEATHFLIP = "Randomly flip sprite upon death.";
 NASHGOREMNU_HELPTEXT_MISC_SQUISH = "Enable squishy flesh when corpse is crushed.";
 NASHGOREMNU_HELPTEXT_MISC_ICEDEATH = "Enhanced effects upon breaking a frozen enemy.";
 NASHGOREMNU_HELPTEXT_MISC_SPLAT = "Enable splat effect when corpse falls from tall height.";
+NASHGOREMNU_HELPTEXT_SOUND_BLOODIMPACTVOLUME = "Blood impact sound volume level.";
 NASHGOREMNU_HELPTEXT_MISC_CLEARGORENOW = "Removes all gore effects immediately.";
 
 NASHGOREMNU_HELPTEXT_CONTROLS_CLEARGORE = "Key bind to remove all gore objects.";
