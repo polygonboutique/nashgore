@@ -1,6 +1,6 @@
 # Nash's Gore Mod: Vengeance Edition
-Version: 1.0<br/>
-Requires: GZDoom 4.1.3 or higher<br/>
+Version: 1.1 beta<br/>
+Requires: GZDoom 4.3.3 or higher<br/>
 Official forum thread: https://forum.zdoom.org/viewtopic.php?f=46&t=62641<br/>
 Github: https://github.com/nashmuhandes/nashgore<br/>
 
