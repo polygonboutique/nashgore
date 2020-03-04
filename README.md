@@ -58,20 +58,21 @@ Slope alignment method by ZZYZX<br/>
 Sounds by various FreeSound contributors (see below)<br/>
 Audio mixed and mastered by Nash Muhandes
 
-Special thanks:
+Special thanks (in alphabetical order):
 
-Marisa Heit<br/>
-Graf Zahl<br/>
-Rachael<br/>
-dpJudas<br/>
-Gutawer<br/>
-phantombeta<br/>
-ZZYZX<br/>
-Marisa Kirisame<br/>
+Boondorl<br/>
 Caligari87<br/>
+Graf Zahl<br/>
+Gutawer<br/>
+Marisa Heit<br/>
+Marisa Kirisame<br/>
 Namsan<br/>
-m8f<br/>
+Rachael<br/>
 The Zombie Killer<br/>
+ZZYZX<br/>
+dpJudas<br/>
+m8f<br/>
+phantombeta<br/>
 
 Sound sources:
 
