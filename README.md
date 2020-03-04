@@ -37,17 +37,6 @@ BlueBlood
 GreenBlood
 ```
 
-### Know Issues/TODO List
-
-- Heretic Knight's axe spawns blood (A_DripBlood)
-- Crushed/squishy gibs probably don't work correctly with crushing polyobjs
-- Ice chunks might get stuck inside solid objects
-- When frozen enemies automatically shatter, gibs will not appear
-- Wall decals do not look the same as floor blood splats. The reason for this
-  is that wall decals cannot be opaque, they can only be shaded with a single
-  colour. Fixing this would require GZDoom to implement translatable opaque
-  wall decals.
-
 ### Credits
 
 Nash's Gore Mod: Vengeance Edition<br/>
